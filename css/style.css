@@ -1,175 +1,190 @@
-/* body style */
+/* Set the font family, background image, and background color for the entire body of the page */
 body {
-    font-family: 'Poppins', serif;
-    background-image: url('../images/concrete_seamless.png');
-    background-color: #f1f1f1;
-    }
+  font-family: 'Poppins', serif;
+  background-image: url('../images/concrete_seamless.png');
+  background-color: #f1f1f1;
+}
 
+/* Style the header to be a flex container, align items vertically and horizontally, and set the flex direction to column */
 header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-/* nav link display for smaller screens */
+/* Style the navigation links to be displayed as a flex container with a column direction and set the color to blue with no text decoration */
 .nav_links {
-    display: flex;
-    flex-direction: column;
-    color: blue;
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: blue;
+  text-decoration: none;
 }
 
-/* ensuring same colour for the page visited */
+/* Ensure that visited navigation links maintain the same color as non-visited links */
 .nav_item a:visited {
-    color: inherit;
+  color: inherit;
 }
 
-/* card style */
+/* Style the header of each card with a specific background color, border, padding, and rounded top corners */
 .card > header {
-background: #288088;
-border: solid 2px #45ADAD;
-padding: 20px 0;
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
+  background: #288088;
+  border: solid 2px #45ADAD;
+  padding: 20px 0;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
-/* card display - flex, innitial width 450px */
+/* Set the card to be a flex item with an initial width of 450px and rounded top corners */
 .card {
-flex: 0 1 450px;
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
+  flex: 0 1 450px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
-/* Animate the logo with keyframes. start at a width of 25px and grow to 475px. start with an opacity of 0 and end with an opacity of 1. duration- 5 seconds and only happen when the page is loaded. */
+/* Define a keyframe animation for the logo that starts with a width of 25px and opacity of 0, and ends with a width of 475px and opacity of 1. The animation duration is 5 seconds and only happens when the page is loaded. */
 @keyframes logoAnimation {
-0% {
-width: 25px;
-opacity: 0;
-}
-100% {
-width: 475px;
-opacity: 1;
-}
+  0% {
+    width: 25px;
+    opacity: 0;
+  }
+  100% {
+    width: 475px;
+    opacity: 1;
+  }
 }
 
+/* Apply the logoAnimation keyframe to the element with the id "logo" and ensure that the final state of the animation is maintained after it completes */
 #logo {
-animation: logoAnimation 5s;
-animation-fill-mode: forwards;
+  animation: logoAnimation 5s;
+  animation-fill-mode: forwards;
 }
 
-/* pricing cards display - flex */
+/* Set the pricing section to be a flex container, center its items both vertically and horizontally, and allow items to wrap to the next line if necessary */
 .pricing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-/* gallery display - flex */
+/* Set the gallery to be a flex container, allow items to wrap to the next line, and center the items horizontally */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-/* gallery image styling */
+/* Style the images within the gallery with a solid border, margin, and a fixed width of 300px */
 .gallery img {
-    border: solid 10px #50C7C7;
-    margin: 10px;
-    width: 300px;
-    }
+  border: solid 10px #50C7C7;
+  margin: 10px;
+  width: 300px;
+}
 
-/* media query for larger screens */
+/* Media query for larger screens (min-width: 900px) */
 @media screen and (min-width: 900px) {
-    header {
+  /* Change the header to a flex container with a row direction, space between items, and centered vertically */
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    }
+  }
 
-    /* nav link display for larger screens: logo extreme left and navlinks in a row: exreme right */
-    .nav_links {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-left: auto;
-        width: 100%;
-        }
+  /* Change the navigation links to a flex container with a row direction, aligned to the right, and taking up the full width of the container */
+  .nav_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    width: 100%;
+  }
 
-    #logo {
+  /* Set the logo to have an automatic right margin, pushing it to the extreme left */
+  #logo {
     margin-right: auto;
-    }
+  }
 
-    /* pricing cards display - flex */
-    .pricing {
-        flex-direction: row;
-        align-items: flex-end;
-        }
+  /* Change the pricing section to a flex container with a row direction and items aligned to the bottom */
+  .pricing {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 
-    /* card display - flex, innitial width 275px */
-    .card {
-        flex-basis: 275px;
-        }
+  /* Set the card to be a flex item with a basis width of 275px */
+  .card {
+    flex-basis: 275px;
+  }
 
-    /* sticky header - fixed position during scroll */
-    body > header:first-of-type {
-        position: sticky;
-        top: 0;
-        }
+  /* Set the first header within the body to have a fixed position and stick to the top of the viewport during scrolling */
+  body > header:first-of-type {
+    position: sticky;
+    top: 0;
+  }
 }
 
-/* media query for user preference: reduced motion - no logo animation */
+/* Media query for user preference: reduced motion */
 @media screen and (prefers-reduced-motion: reduce) {
-    #logo {
-        animation: none;
-    }
+  /* Disable the logo animation if the user prefers reduced motion */
+  #logo {
+    animation: none;
+  }
 }
 
-/* media query for print: font- Arial/Helvetica, gallery display- none, footer on the next page of print, addition of thumbs up emoji in cards */
+/* Media query for print styles */
 @media print {
-    body {
-        font-family: Arial, Helvetica;
-        background-image: none;
-    }
-    
-    h2#gallery {
-        display: none;
-    }
+  /* Change the font family to Arial or Helvetica for printing */
+  body {
+    font-family: Arial, Helvetica;
+    background-image: none;
+  }
 
-    nav {
-        width: 100%;
-    }
-    .nav_links {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    
-    .pricing {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-end;
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-    }
-    
-    .card {
-        border: solid 2px #45ADDD;
-        flex-basis: 325px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    
-    .gallery {
-        display: none;
-    }
-    
-    .card ul li:nth-child(2)::after {
-        content: "👍";
-    }
-    
-    footer {
-        break-before: page;
-    }
-    }
+  /* Hide the gallery heading when printing */
+  h2#gallery {
+    display: none;
+  }
+
+  /* Set the navigation to take up the full width of the container */
+  nav {
+    width: 100%;
+  }
+
+  /* Change the navigation links to a flex container with a row direction and space around justification */
+  .nav_links {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  /* Set the pricing section to a flex container with no wrapping, items aligned to the bottom, avoid page breaks inside the container, and add a bottom margin */
+  .pricing {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  /* Style the cards with a solid border, a basis width of 325px, and set them to be a flex container with a column direction and items justified to the bottom */
+  .card {
+    border: solid 2px #45ADDD;
+    flex-basis: 325px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Hide the gallery when printing */
+  .gallery {
+    display: none;
+  }
+
+  /* Add a thumbs-up emoji after the second list item within each card when printing */
+  .card ul li:nth-child(2)::after {
+    content: "👍";
+  }
+
+  /* Force the footer to start on a new page when printing */
+  footer {
+    break-before: page;
+  }
+}

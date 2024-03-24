@@ -1,0 +1,175 @@
+/* body style */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+    }
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* nav link display for smaller screens */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    color: blue;
+    text-decoration: none;
+}
+
+/* ensuring same colour for the page visited */
+.nav_item a:visited {
+    color: inherit;
+}
+
+/* card style */
+.card > header {
+background: #288088;
+border: solid 2px #45ADAD;
+padding: 20px 0;
+border-top-left-radius: 50px;
+border-top-right-radius: 50px;
+}
+
+/* card display - flex, innitial width 450px */
+.card {
+flex: 0 1 450px;
+border-top-left-radius: 50px;
+border-top-right-radius: 50px;
+}
+
+/* Animate the logo with keyframes. start at a width of 25px and grow to 475px. start with an opacity of 0 and end with an opacity of 1. duration- 5 seconds and only happen when the page is loaded. */
+@keyframes logoAnimation {
+0% {
+width: 25px;
+opacity: 0;
+}
+100% {
+width: 475px;
+opacity: 1;
+}
+}
+
+#logo {
+animation: logoAnimation 5s;
+animation-fill-mode: forwards;
+}
+
+/* pricing cards display - flex */
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+
+/* gallery display - flex */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+
+/* gallery image styling */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+    }
+
+/* media query for larger screens */
+@media screen and (min-width: 900px) {
+    header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    /* nav link display for larger screens: logo extreme left and navlinks in a row: exreme right */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-left: auto;
+        width: 100%;
+        }
+
+    #logo {
+    margin-right: auto;
+    }
+
+    /* pricing cards display - flex */
+    .pricing {
+        flex-direction: row;
+        align-items: flex-end;
+        }
+
+    /* card display - flex, innitial width 275px */
+    .card {
+        flex-basis: 275px;
+        }
+
+    /* sticky header - fixed position during scroll */
+    body > header:first-of-type {
+        position: sticky;
+        top: 0;
+        }
+}
+
+/* media query for user preference: reduced motion - no logo animation */
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* media query for print: font- Arial/Helvetica, gallery display- none, footer on the next page of print, addition of thumbs up emoji in cards */
+@media print {
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    
+    h2#gallery {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+    }
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .gallery {
+        display: none;
+    }
+    
+    .card ul li:nth-child(2)::after {
+        content: "👍";
+    }
+    
+    footer {
+        break-before: page;
+    }
+    }

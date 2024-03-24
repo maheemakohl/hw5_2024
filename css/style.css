@@ -25,7 +25,7 @@ header {
   color: inherit;
 }
 
-/* Style the header of each card with a specific background color, border, padding, and rounded top corners */
+/* Style the header elements that are direct children of a card class with: background: #288088, solid 2px border using #45ADAD, 20px of padding on the top and the bottom, 50px border-radius on the top left and right corners. */
 .card > header {
   background: #288088;
   border: solid 2px #45ADAD;
